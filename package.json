@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm run migrations:run -- --env production && node index.js",
     "build": "npm --prefix delivery-app install && npm --prefix delivery-app run build",
     "test": "mocha --recursive --exit",
     "dev": "nodemon index.js",
