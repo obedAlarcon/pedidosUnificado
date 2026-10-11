@@ -1,0 +1,193 @@
+/* ==================================================
+   LAYOUT
+================================================== */
+
+.client-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #f9f9ff;
+  overflow-x: hidden;
+}
+
+
+/* ==================================================
+   CONTENIDO
+================================================== */
+
+.client-content {
+  width: 100%;
+  min-width: 0;
+  background: #f9f9ff;
+
+  padding-top: 72px;
+  padding-bottom: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* ==================================================
+   MENÚ MÓVIL
+================================================== */
+
+.mobile-client-nav {
+  display: none;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 768px) {
+
+  .client-content {
+    padding-top: 118px;
+  }
+
+}
+
+
+/* ==================================================
+   MÓVIL
+================================================== */
+
+@media (max-width: 576px) {
+
+  .client-content {
+    padding-top: 112px;
+    padding-bottom: 76px;
+  }
+
+  /* ================================================
+     MENÚ INFERIOR
+  ================================================ */
+
+  .mobile-client-nav {
+    position: fixed;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 68px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-top: 1px solid #c2c6d5;
+
+    box-shadow:
+      0 -4px 18px rgba(12, 28, 50, 0.08);
+
+    z-index: 9999;
+
+    padding: 6px 8px;
+
+    box-sizing: border-box;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+
+  /* ================================================
+     ENLACES
+  ================================================ */
+
+  .mobile-client-nav a {
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    text-decoration: none;
+
+    color: #727784;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    border-radius: 12px;
+
+    transition:
+      color 0.2s ease,
+      background 0.2s ease;
+  }
+
+
+  /* ================================================
+     ICONOS
+  ================================================ */
+
+  .mobile-client-nav a i {
+    font-size: 22px;
+    line-height: 1;
+
+    transition:
+      transform 0.2s ease,
+      color 0.2s ease;
+  }
+
+
+  /* ================================================
+     TEXTO
+  ================================================ */
+
+  .mobile-client-nav a span {
+    line-height: 1;
+  }
+
+
+  /* ================================================
+     ACTIVO
+  ================================================ */
+
+  .mobile-client-nav a.active {
+    color: #0051a9;
+
+    background: rgba(0, 81, 169, 0.07);
+  }
+
+  .mobile-client-nav a.active i {
+    color: #1769d1;
+
+    transform: translateY(-1px);
+  }
+
+}
+
+
+/* ==================================================
+   MÓVIL PEQUEÑO
+================================================== */
+
+@media (max-width: 400px) {
+
+  .client-content {
+    padding-top: 108px;
+    padding-bottom: 76px;
+  }
+
+  .mobile-client-nav {
+    height: 64px;
+  }
+
+  .mobile-client-nav a {
+    font-size: 10px;
+  }
+
+  .mobile-client-nav a i {
+    font-size: 21px;
+  }
+
+}

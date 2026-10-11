@@ -1,0 +1,255 @@
+/* ======================================================
+   Tarjeta principal
+====================================================== */
+
+.product-form{
+
+    background:#ffffff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(15,23,42,.08);
+
+}
+
+/* ======================================================
+   Labels
+====================================================== */
+
+.form-label{
+
+    font-weight:600;
+    color:#334155;
+    margin-bottom:.5rem;
+
+}
+
+/* ======================================================
+   Inputs
+====================================================== */
+
+.form-control,
+.form-select{
+
+    height:48px;
+    border-radius:12px;
+    border:1px solid #dbe4ee;
+    transition:.25s;
+    font-size:.95rem;
+
+}
+
+textarea.form-control{
+
+    height:140px;
+    resize:none;
+    padding-top:12px;
+
+}
+
+/* ======================================================
+   Focus
+====================================================== */
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563eb;
+    box-shadow:0 0 0 .20rem rgba(37,99,235,.15);
+
+}
+
+/* ======================================================
+   Validaciones
+====================================================== */
+
+.text-danger{
+
+    display:block;
+    margin-top:6px;
+    font-size:.82rem;
+    font-weight:500;
+
+}
+
+/* ======================================================
+   Checkbox
+====================================================== */
+
+.form-check{
+
+    padding-left:1.8rem;
+
+}
+
+.form-check-input{
+
+    cursor:pointer;
+
+}
+
+.form-check-label{
+
+    cursor:pointer;
+    font-weight:600;
+    color:#475569;
+
+}
+
+/* ======================================================
+   Vista previa de imagen
+====================================================== */
+
+.image-preview{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    padding:20px;
+
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    background:#f8fafc;
+
+}
+
+.image-preview img{
+
+    width:220px;
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    border:2px solid #ffffff;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.15);
+
+}
+
+.image-preview .btn{
+
+    width:auto;
+    min-width:180px;
+
+}
+
+/* ======================================================
+   Botones
+====================================================== */
+
+.form-actions{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-top:10px;
+
+}
+
+.btn{
+
+    min-width:150px;
+    height:46px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+/* Guardar */
+
+.btn-primary{
+
+    background:#2563eb;
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(37,99,235,.25);
+
+}
+
+/* Cancelar */
+
+.btn-outline-secondary{
+
+    border:1px solid #cbd5e1;
+
+}
+
+.btn-outline-secondary:hover{
+
+    background:#f1f5f9;
+
+}
+
+/* ======================================================
+   Responsive
+====================================================== */
+
+@media(max-width:768px){
+
+    .product-form{
+
+        padding:20px;
+
+    }
+
+    .image-preview{
+
+        padding:16px;
+
+    }
+
+    .image-preview img{
+
+        width:170px;
+        height:170px;
+
+    }
+
+    .image-preview .btn{
+
+        width:100%;
+
+    }
+
+    .form-actions{
+
+        flex-direction:column-reverse;
+
+    }
+
+    .form-actions .btn{
+
+        width:100%;
+
+    }
+
+}
+
+/* ======================================================
+   Evitar cortes
+====================================================== */
+
+.product-form,
+.row,
+.col-md-6,
+.col-12{
+
+    overflow:visible !important;
+
+}

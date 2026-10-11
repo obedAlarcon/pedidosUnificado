@@ -1,0 +1,37 @@
+<h1 class="page-title">
+
+    Productos
+
+</h1>
+
+<p class="page-subtitle">
+
+    Administra todos los productos registrados.
+
+</p>
+
+<app-product-filters
+
+    [categories]="categories"
+
+    (searchChange)="onSearch($event)"
+
+    (categoryChange)="onCategory($event)"
+
+    (statusChange)="onStatus($event)"
+
+    (clear)="clearFilters()">
+
+</app-product-filters>
+
+<app-product-table
+
+    [products]="products"
+
+    (view)="viewProduct($event)"
+
+    (edit)="editProduct($event)"
+
+    (delete)="deleteProduct($event)">
+
+</app-product-table>

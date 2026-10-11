@@ -1,0 +1,291 @@
+
+<div class="container-fluid px-3">
+
+    <!-- PARTE SUPERIOR -->
+    <div class="row g-3 order-top-row">
+
+        <!-- CLIENTE + PRODUCTOS -->
+        <div class="col-lg-6">
+
+            <div class="order-left-card">
+
+                <app-customer-card
+                    class="customer-component"
+                    (customerSelected)="onCustomerSelected($event)">
+                </app-customer-card>
+
+                <div class="order-products-inside">
+
+                    <app-order-products
+                        class="order-products-component"
+                        [items]="items"
+                        (increaseItem)="increase($event)"
+                        (decreaseItem)="decrease($event)"
+                        (removeItem)="remove($event)">
+                    </app-order-products>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CATÁLOGO -->
+        <div class="col-lg-6">
+
+            <div class="catalog-wrapper">
+
+                <app-product-catalog
+                    class="catalog-component"
+                    (addProduct)="addProduct($event)">
+                </app-product-catalog>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESPACIO -->
+    <div class="main-space"></div>
+
+
+    <!-- TOTAL DEL PEDIDO -->
+    <div class="card shadow-sm border-0 order-total-card">
+
+        <div class="card-body">
+
+            <div class="order-total-content">
+
+                <div class="order-total-info">
+
+                    <div class="order-total-label">
+                        Total del pedido
+                    </div>
+
+                    <div class="order-total-value">
+                        {{ total | currency:'COP':'symbol':'1.0-0' }}
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn btn-success btn-save-order"
+                    (click)="saveOrder()">
+
+                    <i class="bi bi-check-circle me-2"></i>
+
+                    Guardar pedido
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ESPACIO -->
+    <div class="payment-space"></div>
+
+
+    <!-- MÉTODOS Y ESTADOS -->
+    <div class="row g-3 mb-4">
+
+
+        <!-- MÉTODO DE PAGO -->
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Método de pago
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="paymentMethod">
+
+                <option value="Efectivo">
+                    Efectivo
+                </option>
+
+                <option value="Nequi">
+                    Nequi
+                </option>
+
+                <option value="Transferencia">
+                    Transferencia
+                </option>
+
+                <option value="Tarjeta débito">
+                    Tarjeta débito
+                </option>
+
+                <option value="Tarjeta crédito">
+                    Tarjeta crédito
+                </option>
+
+                <option value="Crédito">
+                    Crédito
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ESTADO DEL PAGO -->
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Estado del pago
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="paymentStatus">
+
+                <option value="Pendiente">
+                    Pendiente
+                </option>
+
+                <option value="Pagado">
+                    Pagado
+                </option>
+
+                <option value="Cancelado">
+                    Cancelado
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- ESTADO DE LA ORDEN -->
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Estado de la orden
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="orderStatus">
+
+                <option value="Pendiente">
+                    Pendiente
+                </option>
+
+                <option value="En proceso">
+                    En proceso
+                </option>
+
+                <option value="Entregado">
+                    Entregado
+                </option>
+
+                <option value="Cancelado">
+                    Cancelado
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- NÚMERO DE CUOTAS -->
+        <div
+            class="col-md-4"
+            *ngIf="isCredit">
+
+            <label class="form-label">
+                Número de cuotas
+            </label>
+
+            <select
+                class="form-select"
+                [(ngModel)]="numeroCuotas">
+
+                <option [ngValue]="1">
+                    1 cuota
+                </option>
+
+                <option [ngValue]="2">
+                    2 cuotas
+                </option>
+
+                <option [ngValue]="3">
+                    3 cuotas
+                </option>
+
+                <option [ngValue]="4">
+                    4 cuotas
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- RESUMEN DEL CRÉDITO -->
+        <div
+            class="col-12"
+            *ngIf="isCredit">
+
+            <div class="alert alert-info">
+
+                <div class="mb-2">
+
+                    <strong>
+                        Precio de contado:
+                    </strong>
+
+                    {{ total | currency:'COP':'symbol':'1.0-0' }}
+
+                </div>
+
+
+                <div class="mb-2">
+
+                    <strong>
+                        Incremento:
+                    </strong>
+
+                    {{ porcentajeCredito }}%
+
+                </div>
+
+
+                <div class="mb-2">
+
+                    <strong>
+                        Total a crédito:
+                    </strong>
+
+                    {{ totalCredito | currency:'COP':'symbol':'1.0-0' }}
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Valor por cuota:
+                    </strong>
+
+                    {{ valorCuota | currency:'COP':'symbol':'1.0-0' }}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

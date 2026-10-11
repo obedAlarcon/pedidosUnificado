@@ -1,0 +1,27 @@
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+
+# Dependencias de Node.js
+node_modules/
+delivery-app/node_modules/
+
+# Archivos generados por Angular
+delivery-app/dist/
+delivery-app/.angular/
+
+# Datos locales de PostgreSQL
+postgres_data/
+
+# Archivos de configuración local
+docker-compose.yml
+
+# Archivos locales de prueba con credenciales
+/secret.js
+/token-sign.js
+/token-verify.js
+/pass_verify.js
+/password.hash.js
+/scripts/create_test_user.js
+/scripts/test_login.js

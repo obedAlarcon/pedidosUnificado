@@ -1,0 +1,295 @@
+<form
+  [formGroup]="productForm"
+  (ngSubmit)="submit()"
+  class="product-form">
+
+  <div class="row">
+
+    <!-- Nombre -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+
+        Nombre del producto
+
+      </label>
+
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name">
+
+      @if(hasError('name')){
+
+        <small class="text-danger">
+
+          El nombre es obligatorio.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Categoría -->
+
+    <div class="col-md-6 mb-3">
+
+      <label class="form-label">
+
+        Categoría
+
+      </label>
+
+      <select
+        class="form-select"
+        formControlName="categoryId">
+
+        <option [ngValue]="0">
+
+          Seleccione una categoría
+
+        </option>
+
+        @for (category of categories; track category.id) {
+
+          <option [ngValue]="category.id">
+
+            {{ category.name }}
+
+          </option>
+
+        }
+
+      </select>
+
+      @if(hasError('categoryId')){
+
+        <small class="text-danger">
+
+          Debe seleccionar una categoría.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Descripción -->
+
+    <div class="col-12 mb-3">
+
+      <label class="form-label">
+
+        Descripción
+
+      </label>
+
+      <textarea
+        rows="4"
+        class="form-control"
+        formControlName="description">
+      </textarea>
+
+      @if(hasError('description')){
+
+        <small class="text-danger">
+
+          La descripción es obligatoria.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Precio de compra -->
+
+    <div class="col-md-4 mb-3">
+
+      <label class="form-label">
+
+        Precio de compra
+
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="purchasePrice">
+
+      @if(hasError('purchasePrice')){
+
+        <small class="text-danger">
+
+          Precio de compra inválido.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Precio -->
+
+    <div class="col-md-4 mb-3">
+
+      <label class="form-label">
+
+        Precio
+
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="price">
+
+      @if(hasError('price')){
+
+        <small class="text-danger">
+
+          Precio inválido.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Stock -->
+
+    <div class="col-md-4 mb-3">
+
+      <label class="form-label">
+
+        Stock
+
+      </label>
+
+      <input
+        type="number"
+        class="form-control"
+        formControlName="stock">
+
+      @if(hasError('stock')){
+
+        <small class="text-danger">
+
+          Stock inválido.
+
+        </small>
+
+      }
+
+    </div>
+
+
+    <!-- Estado -->
+
+    <div class="col-md-4 mb-3 d-flex align-items-center">
+
+      <div class="form-check mt-4">
+
+        <input
+          id="activo"
+          type="checkbox"
+          class="form-check-input"
+          formControlName="isActive">
+
+        <label
+          for="activo"
+          class="form-check-label">
+
+          Producto activo
+
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <!-- Imagen -->
+
+    <div class="col-12 mb-4">
+
+      <label class="form-label">
+
+        Imagen del producto
+
+      </label>
+
+      <input
+        type="file"
+        class="form-control"
+        accept="image/*"
+        (change)="onFileSelected($event)">
+
+    </div>
+
+
+    <!-- Vista previa -->
+
+    @if(previewImage){
+
+      <div class="col-12 mb-4">
+
+        <div class="image-preview">
+
+          <img
+            [src]="previewImage"
+            alt="Vista previa">
+
+          <button
+            type="button"
+            class="btn btn-danger btn-sm"
+            (click)="removeImage()">
+
+            <i class="bi bi-trash"></i>
+
+            Eliminar imagen
+
+          </button>
+
+        </div>
+
+      </div>
+
+    }
+
+  </div>
+
+
+  <!-- Acciones -->
+
+  <div class="form-actions">
+
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      routerLink="/products">
+
+      Cancelar
+
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-primary">
+
+      <i class="bi bi-check-circle me-2"></i>
+
+      Guardar producto
+
+    </button>
+
+  </div>
+
+</form>
